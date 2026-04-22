@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Contador Interativo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    h1 {
+      font-size: 48px;
+      color: black;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="numero">0</h1>
+
+  <button id="incrementar">Incrementar</button>
+  <button id="decrementar">Decrementar</button>
+  <button id="zerar">Zerar</button>
+
+  <script>
+    let contador = 0;
+
+    const numero = document.getElementById("numero");
+    const btnIncrementar = document.getElementById("incrementar");
+    const btnDecrementar = document.getElementById("decrementar");
+    const btnZerar = document.getElementById("zerar");
+
+    function atualizarTela() {
+      numero.textContent = contador;
+
+      if (contador > 0) {
+        numero.style.color = "green";
+      } else if (contador < 0) {
+        numero.style.color = "red";
+      } else {
+        numero.style.color = "black";
+      }
+    }
+
+    btnIncrementar.addEventListener("click", () => {
+      contador++;
+      atualizarTela();
+    });
+
+    btnDecrementar.addEventListener("click", () => {
+      contador--;
+      atualizarTela();
+    });
+
+    btnZerar.addEventListener("click", () => {
+      contador = 0;
+      atualizarTela();
+    });
+  </script>
+
+</body>
+</html>
